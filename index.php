@@ -244,7 +244,7 @@
         
               <div class="row">
         <div class="col-lg-12">
-         <h4>Storage</h4>
+         <h4>Top</h4>
 
           <?php
             $output = shell_exec('df -H');
@@ -279,51 +279,6 @@
                 ?>
               </tr>
             </thead>
-            <tbody>
-            <tr>
-               <?php
-                foreach($table_rows as $row) {
-                  echo "<tr>";
-                  $items = explode(' ', $row);
-                  $col_count = 0;
-                  foreach($items as $item){
-                    if ($item!==""){
-                      if($col_count==4){ 
-                        $percentage = intval($item);
-                        ?>
-
-                        <td>
-                          <div class="progress">
-                            <div
-                              class="progress-bar" 
-                              role="progressbar" 
-                              aria-valuenow="<?php echo $percentage; ?>" 
-                              aria-valuemin="0" 
-                              aria-valuemax="100" 
-                              style="width: <?php echo $percentage; ?>%;"
-                            >
-                              <?php echo $percentage; ?>%
-                            </div>
-                          </div>
-                        </td>
-                      <?php }
-                      else if($col_count==5){
-                        echo "<td><p class='text-right'>$item</p></td>";
-                      }
-                      else if($col_count>0){
-                        echo "<td><p class='text-center'>$item</p></td>";
-                      }
-                      else{
-                        echo "<td><p>$item</p></td>";
-                      }
-                      $col_count++;
-                    }
-                  }
-                  echo "</tr>";
-                }
-              ?>           
-            </tr>
-           </tbody>
           </table>
         </div>
       </div>
