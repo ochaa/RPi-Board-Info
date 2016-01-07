@@ -247,7 +247,7 @@
          <h4>Top</h4>
 
           <?php
-            $output = shell_exec('df -H');
+            $output = shell_exec('iostat -c');
             $table_rows = preg_split ('/$\R?^/m', $output);
             $table_header = explode(' ', $table_rows[0]);
             $table_rows = array_splice($table_rows, 1);
